@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "input_nama.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "welcome.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "beranda.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "bg_music/**",
+      "use": "@vercel/static"
+    }
+  ]
+}
