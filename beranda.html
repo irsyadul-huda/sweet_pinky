@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Beranda</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="sakura-container" id="sakuraContainer"></div>
+
+      <!-- Night rest message toast -->
+      <div class="night-toast" id="nightToast">
+        <span class="night-toast-text" id="nightToastText"></span>
+      </div>
+
+      
+      <div class="page page-transition" id="home">
+        <div class="bear-bg" id="bearBg">
+          <img src="assets/cute_boneka.png" alt="Cute Bear" class="bear-img active-bear" id="bearActive" />
+          <img src="assets/sleep.png" alt="Cute Bear Sleeping" class="bear-img sleep-bear" id="bearSleep" />
+          <div class="bear-speech-bubble" id="bearBubble">
+            <span class="bubble-text" id="bubbleText"></span>
+          </div>
+        </div>
+
+        <div class="greeting-layer">
+          <div class="datetime-container">
+            <div class="time-row">
+              <div class="current-time" id="currentTime">00:00</div>
+              <div class="heart-seconds" id="heartSeconds">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="current-date" id="currentDate">Memuat tanggal...</div>
+          </div>
+
+          <div class="greeting-header">
+            <div class="weather-icon" id="weatherIcon">🌙</div>
+            <div class="weather-text" id="weatherText">Selamat Malam</div>
+          </div>
+
+          <div class="greeting-main">
+            <div class="user-greeting" id="userGreeting"></div>
+            <h1>Selamat Datang</h1>
+            <p>semoga harimu menyenangkan</p>
+          </div>
+        </div>
+
+        <div class="home-content">
+          <div class="music-side-player" id="sidePlayer">
+            <audio id="bgMusic">
+              <source
+                src="bg_music/Nadhif-Basalamah-bergema-sampai-selamanya.mp3"
+                type="audio/mpeg"
+              />
+            </audio>
+
+            <button id="sidePlayerToggle" class="side-player-toggle">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+              </svg>
+            </button>
+
+            <div class="side-player-content">
+              <div class="audio-panel-header">
+                <span class="audio-panel-label">
+                  <svg viewBox="0 0 24 24" fill="#ff1493" width="22" height="22" aria-hidden="true">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </span>
+                <div class="audio-equalizer" id="audioEqualizer" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="audio-controls-row">
+                <button
+                  id="prevTrackBtn"
+                  class="audio-prev-btn"
+                  type="button"
+                  aria-label="Lagu sebelumnya"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                  </svg>
+                </button>
+
+                <button
+                  id="playPauseBtn"
+                  class="audio-play-btn"
+                  type="button"
+                  aria-label="Putar musik"
+                >
+                  <svg class="audio-icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <svg class="audio-icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                  </svg>
+                </button>
+
+                <button
+                  id="nextTrackBtn"
+                  class="audio-next-btn"
+                  type="button"
+                  aria-label="Lagu berikutnya"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="audio-volume-panel">
+                <div class="audio-volume-top">
+                  <span class="audio-volume-badge" id="volumeValue">70%</span>
+                </div>
+
+                <div class="audio-volume-slider" style="--volume-percent: 70%">
+                  <div class="audio-volume-track" aria-hidden="true">
+                    <div class="audio-volume-fill" id="volumeFill"></div>
+                  </div>
+                  <input
+                    type="range"
+                    id="volumeSlider"
+                    min="0"
+                    max="100"
+                    value="70"
+                    class="audio-volume-input"
+                    aria-label="Atur volume"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="70"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <svg width="0" height="0" style="position: absolute">
+        <defs>
+          <clipPath id="navClip" clipPathUnits="userSpaceOnUse">
+            <path id="navClipPath"></path>
+          </clipPath>
+        </defs>
+      </svg>
+
+      <div class="bottom-nav">
+        <div class="nav-background">
+          <svg class="nav-svg">
+            <path id="navBgPath"></path>
+          </svg>
+        </div>
+        <div class="nav-dot" id="navDot"></div>
+        <ul>
+          <li class="active" data-index="0">
+            <a href="#">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li data-index="1">
+            <a href="#">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li data-index="2">
+            <a href="#">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- External scripts -->
+    <script src="js/shared.js"></script>
+    <script src="js/beranda.js"></script>
+    <script src="js/navigation.js"></script>
+  </body>
+</html>

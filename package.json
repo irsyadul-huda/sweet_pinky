@@ -1,0 +1,11 @@
+{
+  "name": "sweet_pinky",
+  "private": true,
+  "scripts": {
+    "dev": "live-server --host=0.0.0.0 --port=3000 --no-browser --watch=.",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

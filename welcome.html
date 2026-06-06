@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Selamat Datang</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="sakura-container" id="sakuraContainer"></div>
+
+      <audio id="welcomeMusic">
+        <source src="bg_music/intro.mp3" type="audio/mpeg" />
+      </audio>
+
+      <div class="page">
+        <div class="welcome-text" id="welcomeText"></div>
+        <div class="welcome-subtext" id="welcomeSubtext">
+          Hei.. aku ada kata-kata buat mu
+        </div>
+        <div class="quotes" id="quotes"></div>
+      </div>
+
+      <div class="copyright-footer">
+        @ <span class="current-year"></span> copyright Phillow
+      </div>
+    </div>
+
+    <!-- External scripts -->
+    <script src="js/shared.js"></script>
+    <script src="js/welcome.js"></script>
+  </body>
+</html>
