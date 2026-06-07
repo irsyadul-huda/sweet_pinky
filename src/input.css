@@ -216,6 +216,8 @@
 
 @layer base {
   :root {
+    --sakura-color-1: #ff1493;
+    --sakura-color-2: #ffb6c1;
     --app-bg: linear-gradient(to bottom, var(--color-white) 0%, #fecfef 60%, #ffccd5 100%);
     --blur-lg: blur(20px);
     --blur-md: blur(12px);

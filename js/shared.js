@@ -63,14 +63,14 @@ function preventScrollAndZoom() {
  * Adds a single sakura element with random properties
  */
 function getSakuraSVG() {
-  const color1 = getComputedStyle(document.documentElement).getPropertyValue('--sakura-color-1').trim();
-  const color2 = getComputedStyle(document.documentElement).getPropertyValue('--sakura-color-2').trim();
+  const color1 = getComputedStyle(document.documentElement).getPropertyValue('--sakura-color-1').trim() || '#ff1493';
+  const color2 = getComputedStyle(document.documentElement).getPropertyValue('--sakura-color-2').trim() || '#ffb6c1';
   
   // Encode the colors for data URL
   const encodedColor1 = encodeURIComponent(color1);
   const encodedColor2 = encodeURIComponent(color2);
   
-  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='${encodedColor1}' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='${encodedColor2}' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23grad)' d='M50 15 C70 35, 75 60, 50 85 C25 60, 30 35, 50 15 Z'/%3E%3C/svg%3E")`;
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='${encodedColor1}' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='${encodedColor2}' stop-opacity='0.2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23grad)' d='M50,35 C50,35 44,20 35,25 C26,30 38,44 38,44 C38,44 23,38 20,47 C17,56 32,60 32,60 C32,60 21,72 29,78 C37,84 46,68 46,68 C46,68 54,84 62,78 C70,72 59,60 59,60 C59,60 74,56 71,47 C68,38 53,44 53,44 C53,44 65,30 56,25 C47,20 50,35 50,35 Z'/%3E%3C/svg%3E")`;
 }
 
 
