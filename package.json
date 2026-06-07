@@ -2,10 +2,15 @@
   "name": "sweet_pinky",
   "private": true,
   "scripts": {
-    "dev": "live-server --host=0.0.0.0 --port=3000 --no-browser --watch=.",
+    "dev": "concurrently \"npm run dev:css\" \"live-server --host=0.0.0.0 --port=3000 --no-browser --watch=.\"",
+    "dev:css": "npx @tailwindcss/cli -i src/input.css -o style.css --watch",
+    "build:css": "npx @tailwindcss/cli -i src/input.css -o style.css --minify",
     "start": "node server.js"
   },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "@tailwindcss/cli": "^4.3.0",
+    "concurrently": "^10.0.3",
+    "live-server": "^1.2.2",
+    "tailwindcss": "^4.3.0"
   }
 }
