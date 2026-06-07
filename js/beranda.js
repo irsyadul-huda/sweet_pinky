@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize night rest message (only between 01:00 - 04:00)
   initNightRestMessage();
 
+  // Initialize wakeup Peachy popup bubble
+  initWakeupBubble();
+
   // Optional: Update greeting every minute
   setInterval(updateGreeting, 60000);
 });
@@ -761,3 +764,60 @@ function showGreetingWithHearts(e) {
     }, 3000);
   }, 250);
 }
+
+/**
+ * Wake-up Peachy bubble — shown periodically with slide-in from top and
+ * a typewriter-style text reveal. Repeats every 3 minutes.
+ */
+function initWakeupBubble() {
+  const bubble    = document.getElementById('wakeupBubble');
+  const bubbleText = document.getElementById('wakeupBubbleText');
+  const bubbleIcon = bubble ? bubble.querySelector('.wakeup-bubble-icon') : null;
+  if (!bubble || !bubbleText) return;
+
+  const messages = [
+    'bangunkan Peachy jika tertidur 🌸',
+    'ketuk Peachy untuk menyapanya 💕',
+    'hai, aku menunggumu di sini ✨',
+  ];
+  let msgIndex = 0;
+
+  function showBubble() {
+    const msg = messages[msgIndex % messages.length];
+    msgIndex++;
+
+    // Reset text and icon animation
+    bubbleText.textContent = msg;
+    bubbleText.classList.remove('reveal');
+
+    // Reset icon animation so it replays
+    if (bubbleIcon) {
+      bubbleIcon.style.animation = 'none';
+      void bubbleIcon.offsetWidth; // reflow
+      bubbleIcon.style.animation = '';
+      bubbleIcon.style.opacity = '0';
+    }
+
+    // Slide down from top
+    bubble.classList.remove('hiding');
+    bubble.classList.add('show');
+
+    // Reveal text after bubble is visible
+    setTimeout(() => {
+      bubbleText.classList.add('reveal');
+    }, 300);
+
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      bubble.classList.add('hiding');
+      bubble.classList.remove('show');
+      bubbleText.classList.remove('reveal');
+    }, 5000);
+  }
+
+  // Show once 2.5 seconds after page loads
+  setTimeout(showBubble, 2500);
+
+  // Then repeat every 3 minutes
+  setInterval(showBubble, 3 * 60 * 1000);
+}
