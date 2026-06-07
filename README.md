@@ -1,30 +1,31 @@
 # sweet_pinky App
-Aplikasi web responsif dengan desain modern, efek glassmorphism, animasi sakura, dan pemutar musik.
 
-## ✨ Fitur
-- Responsive untuk desktop dan mobile
-- Animasi sakura
+A responsive web application with a modern design, glassmorphism effects, sakura animations, and a built-in music player.
+
+## ✨ Features
+- Responsive design for desktop and mobile devices
+- Sakura falling animation
 - Music player
 - Glassmorphism UI
-- Transisi halaman yang halus
-- Ringan dan cepat
+- Smooth page transitions
+- Lightweight and fast
 
-## 📁 Struktur
-- Halaman Input Nama
-- Halaman Sambutan
-- Halaman Utama
-- Asset Gambar dan Musik
-- Server Lokal
+## 📁 Structure
+- Name Input Page
+- Welcome Page
+- Main Page
+- Image and Music Assets
+- Local Server
 
-## 🛠️ Teknologi
+## 🛠️ Technologies
 - HTML
 - CSS
 - JavaScript
 - Node.js
 
-## 🚀 Alur Aplikasi
+## 🚀 Application Flow
 
-Input Nama → Welcome Page → Beranda next progress
+Name Input → Welcome Page → Home Page → Next Progress
 
 ## 📄 License
 
