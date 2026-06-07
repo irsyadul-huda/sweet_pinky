@@ -44,6 +44,21 @@
   --animate-bubbleIconPop: bubbleIconPop 0.5s ease forwards;
   --animate-heartExplode: heartExplode 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
   --animate-explodeParticle: explodeParticle 1.2s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+  --animate-floatGlow: floatGlow 5s ease-in-out infinite alternate;
+
+  @keyframes floatGlow {
+    0% {
+      transform: translate(0, 0) scale(0.8);
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(var(--mx, 20px), var(--my, -50px)) scale(1.2);
+      opacity: 0;
+    }
+  }
 
   @keyframes fall {
     0% {
@@ -402,6 +417,16 @@
     transform-origin: center;
     animation: fall linear infinite;
     transition: background-image 0.3s ease;
+  }
+
+  .glow-dot {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 182, 193, 0.65) 60%, rgba(255, 20, 147, 0) 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatGlow 5s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 4px rgba(255, 255, 255, 0.9);
   }
 
   /* ========================================

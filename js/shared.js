@@ -107,12 +107,47 @@ function createSakura() {
   }, 12000);
 }
 
+function createGlowDot() {
+  const container = document.getElementById('sakuraContainer');
+  if (!container) return;
+
+  const dot = document.createElement('div');
+  dot.classList.add('glow-dot');
+
+  // Random position
+  dot.style.left = Math.random() * 100 + '%';
+  dot.style.top = Math.random() * 100 + '%';
+
+  // Random size between 2px and 5px
+  const size = Math.random() * 3 + 2;
+  dot.style.width = size + 'px';
+  dot.style.height = size + 'px';
+
+  // Random movement variables using CSS variables
+  const mx = (Math.random() * 40 - 20) + 'px';
+  const my = -(Math.random() * 50 + 20) + 'px';
+  dot.style.setProperty('--mx', mx);
+  dot.style.setProperty('--my', my);
+
+  // Random animation duration
+  dot.style.animationDuration = Math.random() * 3 + 3 + 's';
+  dot.style.animationDelay = Math.random() * 2 + 's';
+
+  container.appendChild(dot);
+
+  // Remove element after animation completes
+  setTimeout(() => {
+    dot.remove();
+  }, 6000);
+}
+
 /**
  * Initialize sakura animation loop
  * Creates new sakura elements at regular intervals
  */
 function initializeSakuraAnimation() {
   setInterval(createSakura, 300);
+  setInterval(createGlowDot, 400);
 }
 
 /**
