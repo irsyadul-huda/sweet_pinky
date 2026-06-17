@@ -23,10 +23,6 @@ A responsive web application with a modern design, glassmorphism effects, sakura
 - JavaScript
 - Node.js
 
-## 🚀 Application Flow
-
-Name Input → Welcome Page → Home Page → Next Progress
-
 ## 📄 License
 
 Private Project – All Rights Reserved
